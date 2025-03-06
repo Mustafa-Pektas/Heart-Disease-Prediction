@@ -19,11 +19,19 @@ from scipy.stats import randint
 import warnings 
 warnings.filterwarnings("ignore")
 
+import os
 
 
-# load data 
+# load data
 
-df = pd.read_csv("C:\\Users\\Asus\\Desktop\\CALISMALAR\\python\\datasets\\CSV\\Hospital_Inpatient_Discharges__SPARCS_De-Identified___2021_20231012.csv")
+# BASE_DIR dinamik olarak ayarlanır
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# CSV dosyasının yolunu dinamik olarak belirleriz
+csv_path = os.path.join(BASE_DIR, "datasets", "CSV", "Hospital_Inpatient_Discharges__SPARCS_De-Identified___2021_20231012.csv")
+
+
+df = pd.read_csv(csv_path)
 df_ = df.head(50)
 
 def info(df1):
